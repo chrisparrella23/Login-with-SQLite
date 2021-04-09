@@ -7,15 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="authentication.LoginController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="361.0">
+      <AnchorPane prefHeight="200.0" prefWidth="278.0">
          <children>
-            <TextField layoutX="107.0" layoutY="75.0" promptText="User Name" />
-            <PasswordField layoutX="106.0" layoutY="115.0" promptText="Password" />
-            <Button layoutX="154.0" layoutY="161.0" mnemonicParsing="false" text="Sign In" />
-            <Label layoutX="141.0" layoutY="21.0" text="Welcome!">
+            <TextField fx:id="username" layoutX="65.0" layoutY="88.0" promptText="User Name" />
+            <PasswordField fx:id="password" layoutX="65.0" layoutY="127.0" promptText="Password" />
+            <Button layoutX="113.0" layoutY="161.0" mnemonicParsing="false" onAction="#userLogin" text="Sign In" />
+            <Label layoutX="99.0" layoutY="30.0" text="Welcome!">
                <font>
                   <Font size="18.0" />
                </font>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="authentication.FailureController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="100.0" layoutY="27.0" text="Login Failed">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="68.0" text="Check your login details and try again." />
+            <Button layoutX="100.0" layoutY="138.0" mnemonicParsing="false" onAction="#goBack" text="Back to Login" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
