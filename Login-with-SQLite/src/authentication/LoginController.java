@@ -14,6 +14,8 @@ public class LoginController {
 		
 	}
 	
+	static String[] userInfo = new String[6];
+	
 	@FXML
 	private Button button;
 	@FXML
@@ -22,22 +24,25 @@ public class LoginController {
 	private PasswordField password;
 	
 	@FXML
-	private void userLogin(ActionEvent event) throws IOException {
+	private String[] userLogin(ActionEvent event) throws IOException {
 		App a = new App();
 		
 //		String[] loginInfo = LoginUtils.getLoginInfo(username.getText(), password.getText());
 		String userName = username.getText();
 		String passWord = password.getText();
 		String[] loginInfo = {userName, passWord};
-		String[] userInfo = LoginUtils.login("UserDB.sqlite", loginInfo);
+		userInfo = LoginUtils.login("UserDB.sqlite", loginInfo);
 		if (userInfo[0] == null) {
 			a.changeScene("FailureView.fxml");
 		} else {
-//			a.changeScene(SuccessView.fxml);
-			for (int i = 0; i < userInfo.length; i++) {
-				System.out.println(userInfo[i]);
-			}
+			a.changeScene("UserInfoView.fxml");
+			
+//			for (int i = 0; i < userInfo.length; i++) {
+//				System.out.println(userInfo[i]);
+//			}
+			return userInfo;
 		}
+		return null;
 	}
 
 }
