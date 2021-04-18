@@ -31,7 +31,7 @@ public class LoginController {
 		String userName = username.getText();
 		String passWord = password.getText();
 		String[] loginInfo = {userName, passWord};
-		userInfo = LoginUtils.login("UserDB.sqlite", loginInfo);
+		userInfo = UserUtils.login("UserDB.sqlite", loginInfo);
 		if (userInfo[0] == null) {
 			a.changeScene("FailureView.fxml");
 		} else {
