@@ -33,9 +33,15 @@ public class UserCreationController {
 		App a = new App();
 		String[] newInfo = {username.getText(), password.getText(), firstName.getText(), 
 				lastName.getText(), phone.getText(), email.getText()};
-		for (int i = 0; i < newInfo.length; i++) {
-			System.out.println(newInfo[i]);
+		
+		if (newInfo[0] == "" || newInfo[1] == "") {
+			System.out.println("Username and password are required.");
+		} else {
+			for (int i = 0; i < newInfo.length; i++) {
+				System.out.println(newInfo[i]);
+			}
+//			UserUtils.userCreation("UserDB.sqlite", newInfo, 6);
 		}
-//		UserUtils.userCreation("UserDB.sqlite", null, 6);
+
 	}
 }
