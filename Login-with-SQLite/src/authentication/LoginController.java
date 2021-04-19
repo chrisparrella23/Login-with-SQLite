@@ -27,7 +27,6 @@ public class LoginController {
 	private String[] userLogin(ActionEvent event) throws IOException {
 		App a = new App();
 		
-//		String[] loginInfo = LoginUtils.getLoginInfo(username.getText(), password.getText());
 		String userName = username.getText();
 		String passWord = password.getText();
 		String[] loginInfo = {userName, passWord};
@@ -36,10 +35,6 @@ public class LoginController {
 			a.changeScene("FailureView.fxml");
 		} else {
 			a.changeScene("UserInfoView.fxml");
-			
-//			for (int i = 0; i < userInfo.length; i++) {
-//				System.out.println(userInfo[i]);
-//			}
 			return userInfo;
 		}
 		return null;
