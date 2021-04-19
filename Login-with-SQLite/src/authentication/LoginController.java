@@ -39,5 +39,11 @@ public class LoginController {
 		}
 		return null;
 	}
+	
+	@FXML
+	private void goToUserCreation(ActionEvent event) throws IOException {
+		App a = new App();
+		a.changeScene("UserCreationView.fxml");
+	}
 
 }
