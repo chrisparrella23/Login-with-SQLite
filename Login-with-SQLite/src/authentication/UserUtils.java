@@ -63,15 +63,15 @@ public class UserUtils {
 		
 			ResultSet allUsers = statement.executeQuery("SELECT * FROM Users WHERE UserName =\'" + arr[0] + "\'");
 			
-			if (checkLength(arr[0], 6) && checkLength(arr[1], 6) && checkChars(arr[1]) && isUnique(allUsers)) {
+			if (checkLength(arr[0], length) && checkLength(arr[1], length) && checkChars(arr[1]) && isUnique(allUsers)) {
 				validUser = true;
 				statement.executeUpdate("INSERT INTO Users "
 						+ "(UserName, Password, FirstName, LastName, Phone, Email) "
 						+ "VALUES ('" + arr[0] + "', '" + arr[1] + "', '" + arr[2] + "', '" + arr[3] + "', '" + arr[4] + "', '" + arr[5] + "')");
-			} else if (!checkLength(arr[0], 6)) {
+			} else if (!checkLength(arr[0], length)) {
 				System.out.println("Username must be at least 6 characters long.");
 				validUser = false;
-			} else if (!checkLength(arr[1], 6)) {
+			} else if (!checkLength(arr[1], length)) {
 				System.out.println("Password must be at least 6 characters long.");
 				validUser = false;
 			} else if (!checkChars(arr[1])) {
