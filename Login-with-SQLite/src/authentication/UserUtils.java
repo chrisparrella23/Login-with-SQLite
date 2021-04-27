@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import utils.ConnectionUtil;
 
@@ -133,5 +134,41 @@ public class UserUtils {
 			return true;
 		}
 		return false;
+	}
+	
+	public static boolean changePassword(String databaseName, String username, String newPassword) {
+		boolean validNewPassword = false;
+		
+		Connection connection = null;
+		
+		try {
+			connection = ConnectionUtil.getConnection(databaseName);
+//			Statement statement = connection.createStatement();
+//			statement.setQueryTimeout(10);
+			
+			if (!checkLength(newPassword, 6) || (!checkChars(newPassword))) {
+				System.out.println("Not a valid password. Password must be at least"
+						+ " 6 characters long and contain at least 1 uppercase letter,"
+						+ " 1 lowercase letter, and 1 digit.");
+				validNewPassword = false;
+			} else {
+				validNewPassword = true;
+				
+				String updateString = "UPDATE Users " + "SET Password = ? WHERE Username = ?";
+				PreparedStatement pst = connection.prepareStatement(updateString);
+				
+				pst.setString(1, newPassword);
+				pst.setString(2, username);
+				pst.executeUpdate();
+			}
+			
+//			statement.executeUpdate("UPDATE Users SET Password =\'" + newPassword + "WHERE Username =\'" + username + "\'");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.closeConnection(connection);
+		}
+		return validNewPassword;
 	}
 }

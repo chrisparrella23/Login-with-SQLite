@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import authentication.UserUtils;
+
 public class PasswordChangeTest {
 
 	@Test
@@ -15,14 +17,14 @@ public class PasswordChangeTest {
 		// use UPDATE method to change password with username as 
 		// WHERE condition (EZ PZ)
 		// close connection
-		assertTrue(changePassword(String username, String newPassword));
-		fail("Not yet implemented");
+		assertTrue(UserUtils.changePassword("UserDB.sqlite", "agustafson", "Wiley890"));
+//		fail("Not yet implemented");
 	}
 	
 	@Test
 	public void passwordChangeTestFail() {
-		
-		fail("Not yet implemented");
+		assertTrue(UserUtils.changePassword("UserDB.sqlite", "agustafson", "ey890"));
+//		fail("Not yet implemented");
 	}
 
 }
