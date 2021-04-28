@@ -143,8 +143,6 @@ public class UserUtils {
 		
 		try {
 			connection = ConnectionUtil.getConnection(databaseName);
-//			Statement statement = connection.createStatement();
-//			statement.setQueryTimeout(10);
 			
 			if (!checkLength(newPassword, 6) || (!checkChars(newPassword))) {
 				System.out.println("Not a valid password. Password must be at least"
@@ -161,8 +159,6 @@ public class UserUtils {
 				pst.setString(2, username);
 				pst.executeUpdate();
 			}
-			
-//			statement.executeUpdate("UPDATE Users SET Password =\'" + newPassword + "WHERE Username =\'" + username + "\'");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

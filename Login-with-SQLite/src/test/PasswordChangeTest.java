@@ -18,13 +18,11 @@ public class PasswordChangeTest {
 		// WHERE condition (EZ PZ)
 		// close connection
 		assertTrue(UserUtils.changePassword("UserDB.sqlite", "agustafson", "Wiley890"));
-//		fail("Not yet implemented");
 	}
 	
 	@Test
 	public void passwordChangeTestFail() {
 		assertTrue(UserUtils.changePassword("UserDB.sqlite", "agustafson", "ey890"));
-//		fail("Not yet implemented");
 	}
 
 }
