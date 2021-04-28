@@ -43,6 +43,12 @@ public class UserInfoController implements Initializable {
 		a.changeScene("LoginView.fxml");
 	}
 	
+	@FXML
+	private void goToChangePassword() {
+		App a = new App();
+		a.changeScene("PasswordChangeView.fxml");
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setFields();
